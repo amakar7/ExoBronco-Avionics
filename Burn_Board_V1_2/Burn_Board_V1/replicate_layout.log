@@ -1,0 +1,91 @@
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 312:Plugin executed on: 'win32'
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 313:Plugin executed with python version: '3.9.10 (main, Feb 11 2022, 04:18:11) [MSC v.1928 64 bit (AMD64)]'
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 314:KiCad build version: (6.0.2)
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 315:Plugin version: 1.2.2
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 316:Frame repr: <wx._core.Frame object at 0x000001C1B702A790>
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 340:Preparing replicator with J7 as a reference
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.replicate_layout 106:getting a list of all footprints on board
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 364:source anchor footprint is 'J7'
+Located on: ['MOSFET_1']
+With filenames: ['MOSFET_1.kicad_sch']
+With sheet_id:['MOSFET_1']
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 371:Corresponding footprints are 
+[('J14', ['MOSFET_8']), ('J13', ['MOSFET_7']), ('J12', ['MOSFET_6']), ('J11', ['MOSFET_5']), ('J10', ['MOSFET_4']), ('J9', ['MOSFET_3']), ('J8', ['MOSFET_2']), ('J7', ['MOSFET_1'])]
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 383:Showing dialog
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.replicate_layout 344:constructing a list of sheets suitable for replication on level:'MOSFET_1', file:'MOSFET_1.kicad_sch'
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.replicate_layout 381:suitable sheets are:[['MOSFET_2'], ['MOSFET_3'], ['MOSFET_4'], ['MOSFET_5'], ['MOSFET_6'], ['MOSFET_7'], ['MOSFET_8']]
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1112:Level selected: ['MOSFET_1']
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 389:Toolbar position: wx.Point(1878, 96)
+11-10 20:20:48 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 395:Dialog position: wx.Point(1514, 96)
+11-10 20:20:51 com_github_MitjaNemec_ReplicateLayout.replicate_layout 344:constructing a list of sheets suitable for replication on level:'MOSFET_1', file:'MOSFET_1.kicad_sch'
+11-10 20:20:51 com_github_MitjaNemec_ReplicateLayout.replicate_layout 381:suitable sheets are:[['MOSFET_2'], ['MOSFET_3'], ['MOSFET_4'], ['MOSFET_5'], ['MOSFET_6'], ['MOSFET_7'], ['MOSFET_8']]
+11-10 20:20:51 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1112:Level selected: ['MOSFET_1']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 344:constructing a list of sheets suitable for replication on level:'MOSFET_1', file:'MOSFET_1.kicad_sch'
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 381:suitable sheets are:[['MOSFET_2'], ['MOSFET_3'], ['MOSFET_4'], ['MOSFET_5'], ['MOSFET_6'], ['MOSFET_7'], ['MOSFET_8']]
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 170:Replicating layout
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 154:Starting replication of sheets: [['MOSFET_2'], ['MOSFET_3'], ['MOSFET_4'], ['MOSFET_5'], ['MOSFET_6'], ['MOSFET_7'], ['MOSFET_8']]
+on level: ['MOSFET_1']
+with tracks=True, zone=True, text=True, text=True, containing=False, remove=False, locked footprints=False, by_group=False
+11-10 20:20:53 root 252:updating GUI message: 'Preparing for replication'
+11-10 20:20:53 root 257:updating GUI with: 0
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 224:Getting the list of source footprints
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 239:Getting the list of all the remaining footprints
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 244:Getting nets local to source footprints
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 247:Getting source bounding box
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 251:Getting source tracks
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 266:Getting source zones
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 275:Getting source text items
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 284:Getting source drawing items
+11-10 20:20:53 root 252:updating GUI message: 'Replicating footprints'
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 678:Replicating footprints
+11-10 20:20:53 root 257:updating GUI with: 0
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 684:Replicating footprints on sheet ['MOSFET_2']
+11-10 20:20:53 root 257:updating GUI with: 7
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 684:Replicating footprints on sheet ['MOSFET_3']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 684:Replicating footprints on sheet ['MOSFET_4']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 684:Replicating footprints on sheet ['MOSFET_5']
+11-10 20:20:53 root 257:updating GUI with: 54
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 684:Replicating footprints on sheet ['MOSFET_6']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 684:Replicating footprints on sheet ['MOSFET_7']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 684:Replicating footprints on sheet ['MOSFET_8']
+11-10 20:20:53 root 257:updating GUI with: 92
+11-10 20:20:53 root 252:updating GUI message: 'Replicating tracks'
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 844:Replicating tracks
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 850:Replicating tracks on sheet ['MOSFET_2']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 850:Replicating tracks on sheet ['MOSFET_3']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 850:Replicating tracks on sheet ['MOSFET_4']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 850:Replicating tracks on sheet ['MOSFET_5']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 850:Replicating tracks on sheet ['MOSFET_6']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 850:Replicating tracks on sheet ['MOSFET_7']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 850:Replicating tracks on sheet ['MOSFET_8']
+11-10 20:20:53 root 252:updating GUI message: 'Replicating zones'
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 909:Replicating zones
+11-10 20:20:53 root 257:updating GUI with: 0
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 916:Replicating zones on sheet ['MOSFET_2']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 916:Replicating zones on sheet ['MOSFET_3']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 916:Replicating zones on sheet ['MOSFET_4']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 916:Replicating zones on sheet ['MOSFET_5']
+11-10 20:20:53 root 257:updating GUI with: 57
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 916:Replicating zones on sheet ['MOSFET_6']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 916:Replicating zones on sheet ['MOSFET_7']
+11-10 20:20:53 com_github_MitjaNemec_ReplicateLayout.replicate_layout 916:Replicating zones on sheet ['MOSFET_8']
+11-10 20:20:54 root 252:updating GUI message: 'Replicating text'
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 985:Replicating text
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 992:Replicating text on sheet ['MOSFET_2']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 992:Replicating text on sheet ['MOSFET_3']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 992:Replicating text on sheet ['MOSFET_4']
+11-10 20:20:54 root 257:updating GUI with: 42
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 992:Replicating text on sheet ['MOSFET_5']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 992:Replicating text on sheet ['MOSFET_6']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 992:Replicating text on sheet ['MOSFET_7']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 992:Replicating text on sheet ['MOSFET_8']
+11-10 20:20:54 root 252:updating GUI message: 'Replicating drawings'
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1032:Replicating drawings
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1038:Replicating drawings on sheet ['MOSFET_2']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1038:Replicating drawings on sheet ['MOSFET_3']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1038:Replicating drawings on sheet ['MOSFET_4']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1038:Replicating drawings on sheet ['MOSFET_5']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1038:Replicating drawings on sheet ['MOSFET_6']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1038:Replicating drawings on sheet ['MOSFET_7']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.replicate_layout 1038:Replicating drawings on sheet ['MOSFET_8']
+11-10 20:20:54 com_github_MitjaNemec_ReplicateLayout.action_replicate_layout 190:Replication complete
