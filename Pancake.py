@@ -2,13 +2,13 @@ import time
 from time import sleep 
 import board
 import digitalio
+import bitbangio
 import busio
 from adafruit_ms8607 import MS8607
 from analogio import AnalogIn
 import adafruit_adxl37x
 import adafruit_lis331
 import adafruit_bno055
-import bitbangio
 import storage
 import adafruit_rfm9x
 import adafruit_sdcard
@@ -28,6 +28,10 @@ class BroncoStack:
             'RADIO':False,
             'SD':False,
             }
+
+    
+
+            
         #Define I2C bus
         self.i2c = busio.I2C(board.IO9, board.IO8)
 
@@ -57,7 +61,27 @@ class BroncoStack:
         
         self.last_val = 0xFFFF
 
+        self.logfile = "/sd/log.txt"
+
+        self.sea_level_pressure = 1013.25
         
+        self.port1 = digitalio.DigitalInOut(board.IO47)
+        self.port1.direction = digitalio.Direction.OUTPUT
+
+        self.port3 = digitalio.DigitalInOut(board.IO41)
+        self.port3.direction = digitalio.Direction.OUTPUT
+
+        self.port4 = digitalio.DigitalInOut(board.IO42)
+        self.port4.direction = digitalio.Direction.OUTPUT
+
+        
+        
+        #Init accel2
+        try:
+            self.lis = adafruit_lis331.H3LIS331(self.i2c, 0x19)
+            self.hardware['ACCEL2'] = True
+        except Exception as e:
+            self.debug: print("ERROR Accelerometer 2",e)
         
 
         
@@ -83,12 +107,7 @@ class BroncoStack:
             self.debug: print ("ERROR IMU2",e)
 
         
-        #Init accel2
-        try:
-            self.ACCEL2 =adafruit_lis331.H3LIS331(self.i2c, 0x19)
-            self.hardware['ACCEL2'] = True
-        except Exception as e:
-            self.debug: print("ERROR Accelerometer 2",e)
+        
 
         #Init baro1
         try:
@@ -102,6 +121,7 @@ class BroncoStack:
             self.BARO2 = adafruit_bmp3xx.BMP3XX_I2C(self.i2c)
             self.BARO2.pressure_oversampling = 8
             self.BARO2.temperature_oversampling = 2
+            self.BARO2.sea_level_pressure = self.sea_level_pressure
             self.hardware['BARO2'] = True
         except Exception as e:
             self.debug: print("ERROR barometer 2",e)
@@ -120,7 +140,7 @@ class BroncoStack:
             self.vfs = storage.VfsFat(self.sdcard)
             storage.mount(self.vfs, "/sd")
             self.fs=self.vfs
-            self.logfile="/sd/log.txt"
+            
             self.hardware['SD'] = True
         except Exception as e:
             self.debug: print("ERROR barometer 1",e)
@@ -129,6 +149,15 @@ class BroncoStack:
     def pressure_B1(self):
         if self.hardware['BARO1']:
             return self.BARO1.pressure
+
+    def Alt_B1(self):
+        if self.hardware['BARO1']:
+            alt = 44330*(1-((self.BARO1.pressure/self.sea_level_pressure)**(1/5.255)))
+            return alt
+    
+    def Alt_B2(self):
+        if self.hardware['BARO2']:
+            return self.BARO2.altitude
 
     def pressure_B2(self):
         if self.hardware['BARO2']:
@@ -152,9 +181,8 @@ class BroncoStack:
 
     def acceleration_2(self):
         if self.hardware['ACCEL2']:
-            return self.ACCEL2.acceleration
-    
-
+            return self.lis.acceleration
+            
     def gyro_1(self):
         if self.hardware['IMU1']:
             return self.IMU1.gyro
@@ -191,6 +219,11 @@ class BroncoStack:
         with open(self.logfile, "r") as f:
             print("Read line from file:")
             print(f.readline(), end='')
+    
+    def All_Sensors(self):
+        data = [self.Alt_B1(),self.Alt_B2(),self.acceleration_1(),self.acceleration_2(),self.temperature_B1(),self.temperature_B2(),self.pressure_B1(),self.pressure_B2()]
+        return data
+
 
             
     def avionicstate(self,state):
