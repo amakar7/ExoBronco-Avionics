@@ -33,7 +33,7 @@ class BroncoStack:
 
             
         #Define I2C bus
-        self.i2c = busio.I2C(board.IO9, board.IO8)
+        self.i2c = busio.I2C(board.IO9, board.IO8,frequency=30000)
 
         #Define Uart
         self.UART1 = busio.UART(board.TX,board.RX,baudrate = 9600)
@@ -55,7 +55,27 @@ class BroncoStack:
         self.led.direction = digitalio.Direction.OUTPUT
 
         #Define Vbatt (Find Pin and Define it)
-        self.Vbat = AnalogIn(board.IO15)
+        self.Vbat = AnalogIn(board.IO14)
+
+        #Define Continuity Ports
+
+        self.cont1 = AnalogIn(board.IO4)
+        self.cont2 = AnalogIn(board.IO7)
+        self.cont2 = AnalogIn(board.IO6)
+        self.cont4 = AnalogIn(board.IO16)
+        self.cont5 = AnalogIn(board.IO15)
+        self.cont6 = AnalogIn(board.IO5)
+
+
+        #Define burn ports
+        self.port1 = digitalio.DigitalInOut(board.IO47)
+        self.port1.direction = digitalio.Direction.OUTPUT
+
+        self.port3 = digitalio.DigitalInOut(board.IO41)
+        self.port3.direction = digitalio.Direction.OUTPUT
+
+        self.port4 = digitalio.DigitalInOut(board.IO42)
+        self.port4.direction = digitalio.Direction.OUTPUT
 
         self.Avionics_State = 'nomral'
         
@@ -65,14 +85,7 @@ class BroncoStack:
 
         self.sea_level_pressure = 1013.25
         
-        self.port1 = digitalio.DigitalInOut(board.IO47)
-        self.port1.direction = digitalio.Direction.OUTPUT
-
-        self.port3 = digitalio.DigitalInOut(board.IO41)
-        self.port3.direction = digitalio.Direction.OUTPUT
-
-        self.port4 = digitalio.DigitalInOut(board.IO42)
-        self.port4.direction = digitalio.Direction.OUTPUT
+        
 
         
         
@@ -183,19 +196,35 @@ class BroncoStack:
         if self.hardware['ACCEL2']:
             return self.lis.acceleration
             
-    def gyro_1(self):
+    def IMU1_gyro(self):
         if self.hardware['IMU1']:
             return self.IMU1.gyro
 
-    def gyro_2(self):
+    def IMU2_gyro(self):
         if self.hardware['IMU2']:
             return self.IMU2.gyro
     
-    def mag_1(self):
+    def IMU1_mag(self):
         if self.hardware['IMU1']:
             return self.IMU1.magnetic
     
-    def mag_2(self):
+    def IMU1_Temp(self):
+        if self.hardware['IMU1']:
+            return self.IMU1.temperature
+    
+    def IMU1_Euler(self):
+        if self.hardware['IMU1']:
+            return self.IMU1.euler
+
+    def IMU2_Euler(self):
+        if self.hardware['IMU2']:
+            return self.IMU2.euler
+    
+    def IMU2_Temp(self):
+        if self.hardware['IMU2']:
+            return self.IMU2.temperature
+    
+    def IMU2_mag(self):
         if self.hardware['IMU2']:
             return self.IMU2.magnetic
 
@@ -223,6 +252,14 @@ class BroncoStack:
     def All_Sensors(self):
         data = [self.Alt_B1(),self.Alt_B2(),self.acceleration_1(),self.acceleration_2(),self.temperature_B1(),self.temperature_B2(),self.pressure_B1(),self.pressure_B2()]
         return data
+
+    def cont(self,cont_port):
+        volt = cont_port
+        return volt.value
+    
+    def batt_voltage(self):
+        volt = self.Vbat
+        return (volt.value * 14.7/ 65536)
 
 
             
