@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1946</width>
-    <height>912</height>
+    <height>902</height>
    </rect>
   </property>
   <property name="palette">
@@ -8663,11 +8663,17 @@ font: 20pt &quot;OCR A Extended&quot;;</string>
     <property name="title">
      <string>Graphical View</string>
     </property>
+    <addaction name="actionOpen_Graph_View"/>
    </widget>
    <addaction name="menugnd_view"/>
    <addaction name="menuGraphical_View"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen_Graph_View">
+   <property name="text">
+    <string>Open Graph View</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

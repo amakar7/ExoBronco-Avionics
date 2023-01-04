@@ -11,6 +11,10 @@ app = QtWidgets.QApplication([])
 ui = uic.loadUi(r"C:\Users\amaka\OneDrive - Cal Poly Pomona\UMBRA\AVIONICS_Software\Casper.ui")
 ui.setWindowTitle("Casper Test GUI")
 
+ui_2 = uic.loadUi(r"C:\Users\amaka\OneDrive - Cal Poly Pomona\UMBRA\AVIONICS_Software\Graph_View.ui")
+ui_2.setWindowTitle("Graphical View")
+
+
 serial = QSerialPort()
 serial.setBaudRate(115200)
 portList = []
@@ -18,6 +22,9 @@ ports = QSerialPortInfo().availablePorts()
 for port in ports:
     portList.append(port.portName())
 ui.comboBox.addItems(portList)
+
+InGraphView = False
+
 
 def onRead():
     if not serial.canReadLine(): return    
@@ -34,13 +41,16 @@ def Open_Button():
 def Close_Button():
     serial.close()
 
-def read():
-    return
+def GraphView():
+    global InGraphView
+    InGraphView = True
+    ui_2.show()
  
 
 serial.readyRead.connect(onRead)
 ui.pushButton.clicked.connect(Open_Button)
 ui.pushButton_2.clicked.connect(Close_Button)
+ui.menuGraphical_View.triggered.connect(GraphView)
 
 
 

@@ -34,16 +34,24 @@ def kalman_filt(sigma,sigma_2,t,input,measurment):
   return kalmanState[0][0]
 
 while True:
-  i = 0
-  raw_dat =str(pancake.acceleration_1())
-  split_dat = raw_dat.split(",")
-  Az = split_dat[2].replace(")","")
-  B1_alt = float(pancake.Alt_B1())
-  print(kalman_filt(error1,error2,dt,Az,B1_alt))
-  print(B1_alt)
-  print("------------------------------------------------")
-  i = i+1
-  dt = i*dt
+  AccDat = pancake.acceleration_1()
+  Ax = AccDat[0]
+  Ay = AccDat[1]
+  Az = AccDat[2]
+
+  AnglePitch = (np.atan(Ax/(np.sqrt((Ay*Ay)+(Az*Az)))))*(180/np.pi)
+  AngleRoll = (np.atan(Ay/(np.sqrt((Ax*Ax)+(Az*Az)))))*(180/np.pi)
+  
+  print("The pitch is: {}".format(AnglePitch))
+  print("The roll is: {}".format(AngleRoll))
+  print('-------------------------------------------------------')
+  time.sleep(1) 
+
+
+
+  
+  
+
 
 
 

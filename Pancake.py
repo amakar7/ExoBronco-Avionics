@@ -190,7 +190,13 @@ class BroncoStack:
     
     def acceleration_1(self):
         if self.hardware['ACCEL1']:
-            return self.ACCEL1.acceleration
+            self.raw_dat =str(self.ACCEL1.acceleration)
+            self.split_dat = self.raw_dat.split(",")
+            self.Az = float(self.split_dat[2].replace(")",""))
+            self.Ay = float(self.split_dat[1].replace(")",""))
+            self.Ax = float(self.split_dat[0].replace("(","")) 
+            self.ACCEL1Dat = [self.Ax,self.Ay,self.Az]
+            return self.ACCEL1Dat
 
     def acceleration_2(self):
         if self.hardware['ACCEL2']:
